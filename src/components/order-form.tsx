@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import Icon from "@/components/ui/icon"
+import func2url from "../../backend/func2url.json"
 
 const MATERIALS = [
   { value: "pla", label: "PLA — стандартный" },
@@ -21,6 +22,8 @@ export function OrderForm() {
   const [file, setFile] = useState<File | null>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
   const [material, setMaterial] = useState("")
   const [quantity, setQuantity] = useState("")
   const [name, setName] = useState("")
@@ -40,9 +43,23 @@ export function OrderForm() {
     if (selected) setFile(selected)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError("")
+    try {
+      const res = await fetch(func2url["submit-order"], {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, contact, material, quantity, comment, filename: file?.name || "" }),
+      })
+      if (!res.ok) throw new Error("Ошибка сервера")
+      setSubmitted(true)
+    } catch {
+      setError("Не удалось отправить заявку. Попробуйте ещё раз.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -187,13 +204,21 @@ export function OrderForm() {
         />
       </div>
 
+      {error && (
+        <p className="text-red-400 text-sm text-center">{error}</p>
+      )}
+
       <Button
         type="submit"
         size="lg"
-        className="w-full bg-red-500 hover:bg-red-600 text-white font-bold text-lg py-6 border-0"
+        disabled={loading}
+        className="w-full bg-red-500 hover:bg-red-600 text-white font-bold text-lg py-6 border-0 disabled:opacity-60"
       >
-        <Icon name="Send" size={20} className="mr-2" />
-        Отправить заявку
+        {loading ? (
+          <><Icon name="Loader2" size={20} className="mr-2 animate-spin" />Отправляем...</>
+        ) : (
+          <><Icon name="Send" size={20} className="mr-2" />Отправить заявку</>
+        )}
       </Button>
 
       <p className="text-center text-gray-500 text-xs">

@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "Успешная заявка",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Тест",
+        "contact": "test@test.ru",
+        "material": "pla",
+        "quantity": "1",
+        "filename": "model.stl",
+        "comment": "Тест"
+      },
+      "expectedStatus": 200
+    },
+    {
+      "name": "Ошибка — нет обязательных полей",
+      "method": "POST",
+      "path": "/",
+      "body": { "name": "Иван" },
+      "expectedStatus": 400
+    },
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
