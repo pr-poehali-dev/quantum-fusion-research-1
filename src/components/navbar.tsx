@@ -12,7 +12,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="font-orbitron text-xl font-bold text-white">
-              Print3D<span className="text-red-500">Hub</span>
+              PLA<span className="text-red-500">ip</span>
             </h1>
           </div>
 

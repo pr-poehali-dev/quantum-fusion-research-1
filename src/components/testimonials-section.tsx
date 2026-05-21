@@ -32,7 +32,7 @@ export function TestimonialsSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-card-foreground mb-4 font-sans">Что говорят клиенты</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Реальные отзывы инженеров, стартапов и дизайнеров, которые уже используют Print3D Hub
+            Реальные отзывы инженеров, стартапов и дизайнеров, которые уже используют PLAip
           </p>
         </div>
 

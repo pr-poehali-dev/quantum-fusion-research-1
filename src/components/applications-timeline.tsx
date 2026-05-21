@@ -85,7 +85,7 @@ export function ApplicationsTimeline() {
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">Для каких задач подойдёт</h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Print3D Hub решает задачи бизнеса и частных заказчиков — от быстрого прототипа до серийного
+            PLAip решает задачи бизнеса и частных заказчиков — от быстрого прототипа до серийного
             производства и уникальных кастомных изделий.
           </p>
         </div>
