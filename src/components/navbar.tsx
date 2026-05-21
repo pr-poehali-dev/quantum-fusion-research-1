@@ -31,6 +31,9 @@ export function Navbar() {
               <a href="#faq" className="font-geist text-white hover:text-red-500 transition-colors duration-200">
                 Вопросы
               </a>
+              <a href="#order" className="font-geist text-red-400 hover:text-red-300 transition-colors duration-200 font-semibold">
+                Заказать
+              </a>
             </div>
           </div>
 
@@ -76,6 +79,13 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 Вопросы
+              </a>
+              <a
+                href="#order"
+                className="block px-3 py-2 font-geist text-red-400 hover:text-red-300 transition-colors duration-200 font-semibold"
+                onClick={() => setIsOpen(false)}
+              >
+                Заказать
               </a>
               <div className="px-3 py-2">
                 <a href="#order" onClick={() => setIsOpen(false)}>
