@@ -11,19 +11,23 @@ export function CTASection() {
             приоритетной обработкой и персональной поддержкой.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 pulse-button text-lg px-8 py-4"
-            >
-              Заказать печать
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4 bg-transparent"
-            >
-              Узнать стоимость
-            </Button>
+            <a href="#order">
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 pulse-button text-lg px-8 py-4"
+              >
+                Заказать печать
+              </Button>
+            </a>
+            <a href="#order">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4 bg-transparent"
+              >
+                Узнать стоимость
+              </Button>
+            </a>
           </div>
         </div>
       </div>
